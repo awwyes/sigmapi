@@ -1,7 +1,8 @@
-import { Box, Flex, Text, Icon, Link, Button, Stack, IconButton, Collapse, Popover, PopoverTrigger, PopoverContent, useColorModeValue, useBreakpointValue, useDisclosure, useColorMode, Center } from '@chakra-ui/react';
+import { Box, Flex, Text, Icon, Link, Button, Stack, IconButton, Collapse, Popover, PopoverTrigger, PopoverContent, useColorModeValue, useBreakpointValue, useDisclosure, useColorMode, Circle } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import Image from 'next/image';
 import NextLink from 'next/link';
+import MdOutlineAttachMoney, { MdAttachMoney } from 'react-icons/md';
   
   export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
@@ -49,23 +50,14 @@ import NextLink from 'next/link';
             flex={{ base: 1, md: 0 }}
             justify={'flex-end'}
             direction={'row'}
-            spacing={6}>
+            spacing={2}>
             <Button onClick={toggleColorMode} bgColor={useColorModeValue("purple.500", "purple.500")} color={useColorModeValue("gold.500", "white")}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
             </Button>
-
-            <Button
-              display={{ base: 'none', md: 'inline-flex' }}
-              fontSize={'sm'}
-              fontWeight={600}
-              color={'white'}
-              bg={'purple.500'}
-              _hover={{
-                bg: 'gold.500',
-              }}>
-                <NextLink href={'https://swipesimple.com/sign_in'}>
-                    Sign In
-                </NextLink>
+            <Button onClick={toggleColorMode} bgColor={useColorModeValue('emerald.500', 'purple.500')} color={useColorModeValue('gold.500', 'gold.500')}>
+              <Link href='https://swipesimple.com/sign_in'>
+                {colorMode === 'light' ? <MdAttachMoney /> : <MdAttachMoney />}
+              </Link>
             </Button>
           </Stack>
         </Flex>
